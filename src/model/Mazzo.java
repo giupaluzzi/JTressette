@@ -6,7 +6,7 @@ public class Mazzo {
 	static private Mazzo istanza;
 	private List<Carta> carte = new ArrayList<Carta>();
 	
-	static public Mazzo getInstance() {
+	public static Mazzo getInstance() {
 		if (istanza == null)
 			istanza = new Mazzo();
 		return istanza;

@@ -29,4 +29,16 @@ public class Partita {
 		else 
 			return null;
 	}
+	
+	public void distribusciCarte()
+	{
+		Mazzo mazzo = Mazzo.getInstance();
+		for (Giocatore g : squadraA.getGiocatori())
+			/* Dai 10 carte */
+			g.aggiungiCarte(mazzo.pescaCarte(10));
+		
+		for (Giocatore g : squadraB.getGiocatori())
+			/* Dai 10 carte */
+			g.aggiungiCarte(mazzo.pescaCarte(10));
+	}
 }
