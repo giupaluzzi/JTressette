@@ -20,12 +20,12 @@
 
 
 JTressette/  
-├── model/              # Game logic  
-├── view/               # User interface  
-├── controller/         # Game flow control  
-├── resources/          # Images, audio, etc.  
-├── docs/               # Javadoc  
-└── JTressette.java     # Main entry point  
+```├──``` model/              # Game logic  
+```├──``` view/               # User interface  
+```├──``` controller/         # Game flow control  
+```├──```resources/          # Images, audio, etc.  
+```├──``` docs/               # Javadoc  
+```└──```JTressette.java     # Main entry point  
 
 ## Requirements
 - Java 11+
