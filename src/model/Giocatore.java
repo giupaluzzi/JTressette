@@ -2,23 +2,13 @@ package model;
 import java.util.*;
 
 abstract public class Giocatore {
-	private String nickname;
-	private int elo;
 	private List<Carta> carteInMano;
 	
-	public Giocatore(String nickname, int elo)
+	public Giocatore()
 	{
-		this.nickname = nickname;
-		this.elo = elo;
 		this.carteInMano = new ArrayList<>();
 	}
-	
-	public void giocaCarta(Carta c) 
-	{
-		/* Gioca la carta selezionata*/
 		
-	}
-	
 	public void pescaCarta(Carta c)
 	{
 		carteInMano.add(c);
@@ -28,4 +18,19 @@ abstract public class Giocatore {
 	{
 		carteInMano.addAll(lista);
 	}
+	
+	public List<Carta> getCarte()
+	{
+		return carteInMano;
+	}
+	
+	public Carta giocaCarta(Carta c)
+	{
+		if (carteInMano.remove(c))
+			return c;
+		else
+			throw new IllegalArgumentException("Carta non valida" + c);
+	}
+	
+	public abstract String getNome();
 }

@@ -2,7 +2,7 @@ package model;
 
 import java.io.Serializable;
 
-public class ProfiloUtente implements Serializable{
+public class Profilo implements Serializable{
 	private String nickname;
 	private int elo;
 	private int vittorie;
@@ -10,7 +10,7 @@ public class ProfiloUtente implements Serializable{
 	static final long serialVersionUID = 1L;
 	
 	
-	public ProfiloUtente(String nick, int elo, int vittorie, int sconfitte) 
+	public Profilo(String nick, int elo, int vittorie, int sconfitte) 
 	{
 		this.nickname = nick;
 		this.elo = elo;
