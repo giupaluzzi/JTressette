@@ -27,10 +27,14 @@ JTressette/
 ```├──``` docs/               # Javadoc  
 ```└──```JTressette.java     # Main entry point  
 
+---
+
 ## Requirements
 - Java 11+
 - Eclipse or compatible IDE
 - JavaFX
+
+---
 
 ## Getting Started
 
@@ -39,6 +43,8 @@ git clone https://github.com/giupaluzzi/JTressette.git
 - Import into your IDE
 - Check resource paths
 - Run JTressette.java as a Java application
+
+---
 
 ## Documentation
 Javadoc is available in the /docs folder.
