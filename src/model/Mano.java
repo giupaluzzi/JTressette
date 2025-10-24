@@ -25,6 +25,8 @@ public class Mano {
 				prese.get(s).addAll(carte);
 	}
 	
+	
+	
 	public int calcolaPunteggio(Squadra s) 
 	{
 		double punteggio = 0.0;

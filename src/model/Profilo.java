@@ -7,6 +7,7 @@ public class Profilo implements Serializable{
 	private int elo;
 	private int vittorie;
 	private int sconfitte;
+	private int partiteGiocate;
 	static final long serialVersionUID = 1L;
 	
 	
@@ -16,11 +17,17 @@ public class Profilo implements Serializable{
 		this.elo = elo;
 		this.vittorie = vittorie;
 		this.sconfitte = sconfitte;
+		this.partiteGiocate = partiteGiocate;
 	}
 	
 	public String getNickname() 
 	{
 		return nickname;
+	}
+	
+	public int getPartiteGiocate() 
+	{
+		return this.partiteGiocate;
 	}
 	
 	public int getElo() 

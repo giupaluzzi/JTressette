@@ -41,4 +41,17 @@ public class Partita {
 			/* Dai 10 carte */
 			g.aggiungiCarte(mazzo.pescaCarte(10));
 	}
+	
+	
+	public void setSquadre(Squadra s1, Squadra s2) 
+	{
+		squadraA = s1;
+		squadraB = s2;
+	}
+	
+	// TO DO
+	public Mano creaMano(Giocatore giocatoreIniziale) 
+	{
+		return null;
+	}
 }

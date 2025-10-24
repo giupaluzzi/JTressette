@@ -6,10 +6,10 @@ public class Squadra {
 	private List<Giocatore> giocatori;
 	private int punti;
 	
-	public Squadra(List<Giocatore> giocatori, int punti)
+	public Squadra(List<Giocatore> giocatori)
 	{
 		this.giocatori = giocatori;
-		this.punti = punti;
+		this.punti = 0;
 	}
 	
 	public List<Giocatore> getGiocatori()
@@ -20,5 +20,10 @@ public class Squadra {
 	public int getPunti()
 	{
 		return punti;
+	}
+	
+	public void aggiungiPunti(int punti) 
+	{
+		this.punti += punti;
 	}
 }

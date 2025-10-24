@@ -16,7 +16,7 @@ public class Passata {
 	
 	public Giocatore vincitore() 
 	{
-		/* Utilizza il compareTo definito in carta per impostare la vincitrice
+		/* Utilizza il compareTo definito in Carta per impostare la vincitrice
 		 * */
 		return carteGiocate.entrySet()
 				.stream()
