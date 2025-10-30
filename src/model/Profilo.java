@@ -11,7 +11,7 @@ public class Profilo implements Serializable{
 	static final long serialVersionUID = 1L;
 	
 	
-	public Profilo(String nick, int elo, int vittorie, int sconfitte) 
+	public Profilo(String nick, int elo, int vittorie, int sconfitte, int partiteGiocate) 
 	{
 		this.nickname = nick;
 		this.elo = elo;
