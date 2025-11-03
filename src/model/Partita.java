@@ -2,6 +2,7 @@ package model;
 import java.util.*;
 
 public class Partita {
+	
 	private Squadra squadraA;
 	private Squadra squadraB;
 	private List<Mano> mani;
