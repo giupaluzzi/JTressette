@@ -14,7 +14,9 @@ public class GiocatoreIA extends Giocatore
 	{
 	
 		Random rand = new Random();
-		Carta iniz = p.getCartaIniziale();
+		
+		Giocatore giocIniziale = p.getGiocatoreIniziale();
+		Carta iniz = p.getCartaGiocata(giocIniziale);
 		
 		List<Carta> carteStessoSeme = 
 				super.getCarte()
