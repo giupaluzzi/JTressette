@@ -95,10 +95,14 @@ public class ProfileController {
     				p.getNickname(), 
     				p.getAvatarName(), 
     				e -> {
-    					 Database.getInstance().delete(p.getNickname());
-    					 refreshPlayerList(panel);
-    					 
-    					if (JOptionPane.showConfirmDialog(panel, "Eliminare " + p.getNickname() + "?") == 0) {
+    					if (JOptionPane.showConfirmDialog(
+    				            panel, 
+    				            "Vuoi eliminare il salvataggio di " + p.getNickname() + "?", 
+    				            "Conferma Eliminazione", 
+    				            JOptionPane.YES_NO_OPTION, 
+    				            JOptionPane.QUESTION_MESSAGE) 
+    						== JOptionPane.YES_OPTION) 
+    					{
     	                    Database.getInstance().delete(p.getNickname());
     	                    refreshPlayerList(panel);
     	                }
