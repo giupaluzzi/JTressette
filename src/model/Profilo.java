@@ -10,14 +10,17 @@ public class Profilo implements Serializable{
 	private int partiteGiocate;
 	static final long serialVersionUID = 1L;
 	
+	private String avatar;
 	
-	public Profilo(String nick, int elo, int vittorie, int sconfitte, int partiteGiocate) 
+	
+	public Profilo(String nickname, String avatar) 
 	{
-		this.nickname = nick;
-		this.elo = elo;
-		this.vittorie = vittorie;
-		this.sconfitte = sconfitte;
-		this.partiteGiocate = partiteGiocate;
+		this.nickname = nickname;
+		this.avatar = avatar;
+		this.elo = 0;
+		this.vittorie = 0;
+		this.sconfitte = 0;
+		this.partiteGiocate = 0;
 	}
 	
 	public String getNickname() 
@@ -60,5 +63,9 @@ public class Profilo implements Serializable{
     	sconfitte++;
     }
 	
+    public String getAvatarName() 
+    {
+    	return this.avatar;
+    }
 
 }

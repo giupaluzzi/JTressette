@@ -1,7 +1,9 @@
 package view;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.io.File;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -20,9 +22,37 @@ import java.util.Observer;
 @SuppressWarnings("deprecation") 
 public class View extends JFrame implements Observer {
 
+	
+	/* TODO */
+	// static Font FONT = new Font("Cascadia Code", Font.PLAIN, 14);
+    static String LOGO = "/resources/icons/logo_jframe.png";
+
+    /* TODO
+	static {
+        UIManager.put("Label.font", FONT);
+        UIManager.put("Label.foreground", Color.DARK_GRAY);
+        UIManager.put("Label.background", Color.WHITE);
+        UIManager.put("Button.font", FONT);
+        // UIManager.put("Button.border", Factory.border(new Color(224, 49, 49)));
+        UIManager.put("Button.foreground", new Color(224, 49, 49));
+        UIManager.put("Button.background", new Color(255, 201, 201));
+        UIManager.put("Button.highlight", Color.WHITE);
+        UIManager.put("Button.select", Color.WHITE);
+        UIManager.put("Button.focus", Color.WHITE);
+        UIManager.put("Panel.background", new Color(233, 236, 239));
+    }
+    */
+    
+    
+	
+	
     // Questo pannello funge da "mazzo di carte". Contiene tutte le schermate (Start, Gioco, ecc.)
     private JPanel deck;
     
+    
+    private NewPlayerPanel newPlayerPanel;
+    private PlayerSelectionPanel playerSelectionPanel;
+    private StartPanel startPanel;
     /**
      * Costruttore della View.
      * Inizializza il frame, il layout manager e registra l'observer.
@@ -31,6 +61,18 @@ public class View extends JFrame implements Observer {
     {
         // Imposta il titolo della finestra
         super("JTressette");
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        /* Imposto il logo TODO*/
+        try {
+        	File logo = new File(LOGO);
+        	setIconImage(ImageIO.read(getClass().getResource(logo.getAbsolutePath())));
+            
+        } catch (Exception e) {
+        	//System.out.println("Non è stato possibile recuperare il logo dal path: " + LOGO);
+        }
+        
+        
         
         Navigator navigator = new Navigator();
         navigator.addObserver(this);
@@ -45,28 +87,24 @@ public class View extends JFrame implements Observer {
          */
         
         // Schermata Iniziale (Menu)
-        deck.add(new StartPanel(navigator), Screen.START.name());
+        startPanel = new StartPanel(navigator); 
+        deck.add(startPanel, Screen.START.name());
         
         // Schermata Creazione Nuovo Giocatore
-        deck.add(new NewPlayerPanel(navigator), Screen.NEW_PLAYER.name());
+        newPlayerPanel =new NewPlayerPanel(navigator); 
+        deck.add(newPlayerPanel, Screen.NEW_PLAYER.name());
         
         // Schermata Selezione Giocatore Esistente
-        deck.add(new PlayerSelectionPanel(navigator), Screen.PLAYER_SELECTION.name());
-
-        /*
-         * REGISTRAZIONE OBSERVER
-         * Fondamentale: Diciamo al Navigator "Tienimi informato".
-         * Senza questa riga, il metodo update() non verrebbe mai chiamato e la navigazione non funzionerebbe.
-         */
+        playerSelectionPanel = new PlayerSelectionPanel(navigator);
+        deck.add(playerSelectionPanel, Screen.PLAYER_SELECTION.name());
         
-        navigator.navigate(Screen.START);
+
 
         // Aggiunge il pannello "mazzo" al contenitore principale del JFrame
         this.add(deck);
 
         // Impostazioni standard della finestra
         this.setSize(600, 400); // Dimensioni iniziali
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // Chiude il processo quando si chiude la finestra
         this.setLocationRelativeTo(null); // Centra la finestra nello schermo
         this.setVisible(true); // Rende la finestra visibile
     }
@@ -93,18 +131,11 @@ public class View extends JFrame implements Observer {
         }
     }
 
-    /**
-     * Punto di ingresso dell'applicazione.
-     */
-    public static void main(String[] args)
-    {
-        // Nota: In applicazioni Swing reali, è buona norma avvolgere questo in SwingUtilities.invokeLater()
-        // per garantire che la UI sia creata nel Thread grafico (EDT).
-        
-        // 1. Crea la finestra principale
-        View app = new View();
-        
-        // 2. Naviga immediatamente alla schermata iniziale
-        
+    public NewPlayerPanel getNewPlayerPanel() {
+        return newPlayerPanel;
+    }
+
+    public PlayerSelectionPanel getPlayerSelectionPanel() {
+        return playerSelectionPanel;
     }
 }

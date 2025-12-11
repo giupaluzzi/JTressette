@@ -25,8 +25,6 @@ public class StartPanel extends JPanel{
 		gbc.gridx = 0;
 		gbc.gridy = 0;
 		
-		gbc.weightx = 0.0;
-		gbc.weighty = 0.0;
 		gbc.anchor = GridBagConstraints.PAGE_START;
 		gbc.gridwidth = 3;
 	    gbc.insets = new Insets(20, 0, 40, 0);  // margine sotto il titolo
@@ -34,8 +32,6 @@ public class StartPanel extends JPanel{
 		gbc.gridx = 0;
 		gbc.gridy = 1;
 		
-		gbc.weightx = 0.0;
-		gbc.weighty = 0.0;
 		gbc.ipadx = 30;
 		gbc.ipady = 10;
 		gbc.insets = new Insets(0,0,0,0);
@@ -46,8 +42,6 @@ public class StartPanel extends JPanel{
 		gbc.gridx = 0;
 		gbc.gridy = 2;
 		
-		gbc.weightx = 0.0;
-		gbc.weighty = 0.0;
 		gbc.ipadx = newPlayer.getWidth() + 30;
 		gbc.ipady = 10;
 		gbc.insets = new Insets(0,0,0,0);

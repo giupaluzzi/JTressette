@@ -2,28 +2,19 @@ package view;
 import javax.swing.*;
 import java.awt.*;
 
-public class HeaderPanel extends JPanel{
+abstract public class HeaderPanel extends JPanel{
 
 	private JPanel contentPane;
 	private JPanel backButtonPanel;
 	
-	public HeaderPanel(Navigator navigator) 
+	public HeaderPanel(Navigator navigator, Screen screen) 
 	{
 		/* Imposto il layout */
 		setLayout(new BorderLayout());
 		
+		backButtonPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
 		
-		/* Nella sezione superiore inserisco un bottone per andare indietro  
-		 * Nella sezione centrale/inferiore andrò ad inserire il panel dell'implementazione concreta */
-		JButton backButton = new JButton("<-️");
-		
-		/* Imposto l'icona per andare indietro
-				backButton.setIcon(null); */
-		
-		backButton.addActionListener(e -> navigator.navigate(Screen.START));
-		
-        backButtonPanel = new JPanel(new FlowLayout(FlowLayout.LEFT)); 
-        backButtonPanel.add(backButton);
+        backButtonPanel.add(Factory.createBackButton(navigator, screen));
 
         // Aggiungi il pannello con il bottone nella posizione NORTH
         this.add(backButtonPanel, BorderLayout.NORTH);
